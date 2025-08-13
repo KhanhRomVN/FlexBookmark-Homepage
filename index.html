@@ -588,22 +588,21 @@
       animation: float 4s ease-in-out infinite;
     }
 
-    /* Language Content */
+    /* Language Content - SỬA LỖI TẠI ĐÂY */
+    /* Đơn giản hóa quản lý ngôn ngữ */
     [lang] {
-      transition: opacity 0.3s ease;
-    }
-    
-    [lang]:not(.active-language) {
       display: none;
+      transition: opacity 0.3s ease;
       opacity: 0;
     }
     
-    .active-language {
+    [lang].active-language {
       display: block;
       opacity: 1;
     }
     
-    .hidden {
+    /* Ẩn các phần tử ngôn ngữ trong footer mặc định */
+    .vi {
       display: none;
     }
   </style>
@@ -917,33 +916,33 @@
         <div class="footer-column">
           <h3>FlexBookmark</h3>
           <p class="en">Powerful bookmark management tool that helps optimize your daily web browsing experience.</p>
-          <p class="vi hidden">Công cụ quản lý bookmark mạnh mẽ và dễ sử dụng, giúp bạn tối ưu hóa trải nghiệm duyệt web hàng ngày.</p>
+          <p class="vi">Công cụ quản lý bookmark mạnh mẽ và dễ sử dụng, giúp bạn tối ưu hóa trải nghiệm duyệt web hàng ngày.</p>
         </div>
         
         <div class="footer-column">
           <h3 class="en">Links</h3>
-          <h3 class="vi hidden">Liên kết</h3>
+          <h3 class="vi">Liên kết</h3>
           <ul class="footer-links">
-            <li><a href="https://khanhromvn.github.io/FlexBrowserPrivacy-PolicyPage" target="_blank"><i class="fas fa-shield-alt"></i> <span class="en">Privacy Policy</span><span class="vi hidden">Chính sách bảo mật</span></a></li>
-            <li><a href="https://chromewebstore.google.com/detail/FlexBookmark/bopjlpbmdbbiaphanlcecpbglgbjikje?utm_source=item-share-cb" target="_blank"><i class="fab fa-chrome"></i> <span class="en">Chrome Web Store</span><span class="vi hidden">Chrome Web Store</span></a></li>
-            <li><a href="mailto:khanhromvn@gmail.com"><i class="fas fa-envelope"></i> <span class="en">Contact Support</span><span class="vi hidden">Liên hệ hỗ trợ</span></a></li>
+            <li><a href="https://khanhromvn.github.io/FlexBrowserPrivacy-PolicyPage" target="_blank"><i class="fas fa-shield-alt"></i> <span class="en">Privacy Policy</span><span class="vi">Chính sách bảo mật</span></a></li>
+            <li><a href="https://chromewebstore.google.com/detail/FlexBookmark/bopjlpbmdbbiaphanlcecpbglgbjikje?utm_source=item-share-cb" target="_blank"><i class="fab fa-chrome"></i> <span class="en">Chrome Web Store</span><span class="vi">Chrome Web Store</span></a></li>
+            <li><a href="mailto:khanhromvn@gmail.com"><i class="fas fa-envelope"></i> <span class="en">Contact Support</span><span class="vi">Liên hệ hỗ trợ</span></a></li>
           </ul>
         </div>
         
         <div class="footer-column">
           <h3 class="en">Resources</h3>
-          <h3 class="vi hidden">Tài nguyên</h3>
+          <h3 class="vi">Tài nguyên</h3>
           <ul class="footer-links">
-            <li><a href="#"><i class="fas fa-file-alt"></i> <span class="en">Documentation</span><span class="vi hidden">Tài liệu hướng dẫn</span></a></li>
-            <li><a href="#"><i class="fas fa-question-circle"></i> <span class="en">FAQ</span><span class="vi hidden">Câu hỏi thường gặp</span></a></li>
-            <li><a href="#"><i class="fas fa-blog"></i> <span class="en">Updates Blog</span><span class="vi hidden">Blog cập nhật</span></a></li>
+            <li><a href="#"><i class="fas fa-file-alt"></i> <span class="en">Documentation</span><span class="vi">Tài liệu hướng dẫn</span></a></li>
+            <li><a href="#"><i class="fas fa-question-circle"></i> <span class="en">FAQ</span><span class="vi">Câu hỏi thường gặp</span></a></li>
+            <li><a href="#"><i class="fas fa-blog"></i> <span class="en">Updates Blog</span><span class="vi">Blog cập nhật</span></a></li>
           </ul>
         </div>
       </div>
       
       <div class="copyright">
         <p class="en">© 2025 FlexBookmark | Version 1.1.0 | Developed by KhanhRomVN</p>
-        <p class="vi hidden">© 2025 FlexBookmark | Phiên bản 1.1.0 | Phát triển bởi KhanhRomVN</p>
+        <p class="vi">© 2025 FlexBookmark | Phiên bản 1.1.0 | Phát triển bởi KhanhRomVN</p>
       </div>
     </div>
   </footer>
@@ -973,7 +972,7 @@
       });
       document.getElementById(`switch-${lang}`).classList.add('active');
       
-      // Toggle language-specific elements
+      // Toggle language-specific elements in footer
       const showEN = lang === 'en';
       document.querySelectorAll('.en').forEach(el => {
         el.style.display = showEN ? 'block' : 'none';
@@ -1018,7 +1017,9 @@
     });
 
     // Initialize language
-    switchLanguage('en');
+    document.addEventListener('DOMContentLoaded', function() {
+      switchLanguage('en');
+    });
   </script>
 </body>
 </html>
