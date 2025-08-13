@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FlexBookmark - Smart Bookmark Manager</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <style>
     /* Biến màu sắc */
     :root {
@@ -38,18 +39,6 @@
       overflow-x: hidden;
     }
 
-    body::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(54, 134, 255, 0.03)"/></svg>');
-      background-size: cover;
-      z-index: -1;
-    }
-
     /* Container */
     .container {
       max-width: 1200px;
@@ -63,6 +52,10 @@
       text-align: center;
       position: relative;
       overflow: hidden;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 30px;
+      transition: var(--transition);
     }
 
     .logo-container {
@@ -78,6 +71,12 @@
       transition: var(--transition);
       position: relative;
       z-index: 2;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.5rem;
     }
 
     .logo-container::before {
@@ -166,6 +165,10 @@
       text-align: center;
       padding: 40px 0;
       position: relative;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      margin: 20px 0;
+      box-shadow: var(--box-shadow);
     }
 
     .hero-content {
@@ -185,6 +188,14 @@
       margin-bottom: 30px;
     }
 
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
     .cta-button {
       display: inline-flex;
       align-items: center;
@@ -200,7 +211,6 @@
       transition: var(--transition);
       box-shadow: 0 5px 15px rgba(54, 134, 255, 0.4);
       text-decoration: none;
-      margin: 10px;
     }
 
     .cta-button:hover {
@@ -351,6 +361,17 @@
       font-size: 0.95rem;
     }
 
+    .feature-card ul {
+      text-align: left;
+      margin-top: 15px;
+      padding-left: 20px;
+    }
+
+    .feature-card li {
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
     /* How to use */
     .how-to-use {
       padding: 80px 0;
@@ -435,8 +456,17 @@
 
     .screenshot img {
       width: 100%;
-      height: auto;
+      height: 200px;
       display: block;
+      object-fit: cover;
+    }
+
+    .screenshot .caption {
+      padding: 15px;
+      background: var(--white);
+      text-align: center;
+      font-weight: 500;
+      color: var(--dark);
     }
 
     /* Footer */
@@ -541,6 +571,10 @@
         justify-content: center;
         margin-bottom: 20px;
       }
+      
+      .hero-buttons {
+        flex-direction: column;
+      }
     }
 
     /* Animation */
@@ -568,6 +602,10 @@
       display: block;
       opacity: 1;
     }
+    
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -578,7 +616,9 @@
         <button id="switch-vi">Tiếng Việt</button>
       </div>
       <div class="logo-container">
-        <img src="https://raw.githubusercontent.com/KhanhRomVN/FlexBookmark/main/assets/icons/icon.png" alt="FlexBookmark Logo" class="logo floating">
+        <div class="logo floating">
+          <i class="fas fa-bookmark"></i>
+        </div>
       </div>
       <h1>FlexBookmark</h1>
       <p class="tagline">Smart bookmark management for Chrome - Organize, sync and access your bookmarks efficiently</p>
@@ -665,13 +705,12 @@
                 <i class="fas fa-database"></i>
               </div>
               <h3>Data Transparency</h3>
-              <p>We only request bookmark access to:
-                <ul>
-                  <li>Save and manage your bookmarks</li>
-                  <li>Sync between your devices</li>
-                  <li>Never collect browsing history</li>
-                </ul>
-              </p>
+              <p>We only request bookmark access to:</p>
+              <ul>
+                <li>Save and manage your bookmarks</li>
+                <li>Sync between your devices</li>
+                <li>Never collect browsing history</li>
+              </ul>
             </div>
 
             <div class="feature-card">
@@ -714,12 +753,15 @@
           <div class="screenshots-container">
             <div class="screenshot">
               <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="FlexBookmark Main Interface">
+              <div class="caption">Main Interface</div>
             </div>
             <div class="screenshot">
               <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Folder Management">
+              <div class="caption">Folder Management</div>
             </div>
             <div class="screenshot">
               <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Bookmark Search">
+              <div class="caption">Bookmark Search</div>
             </div>
           </div>
         </section>
@@ -758,7 +800,7 @@
               <a href="https://chromewebstore.google.com/detail/FlexBookmark/bopjlpbmdbbiaphanlcecpbglgbjikje?utm_source=item-share-cb" class="cta-button" target="_blank">
                 <i class="fab fa-chrome"></i> Cài đặt ngay
               </a>
-              <button id="open-extension" class="cta-button secondary-button">
+              <button id="open-extension-vi" class="cta-button secondary-button">
                 <i class="fas fa-external-link-alt"></i> Mở Extension
               </button>
             </div>
@@ -805,13 +847,12 @@
                 <i class="fas fa-database"></i>
               </div>
               <h3>Minh bạch dữ liệu</h3>
-              <p>Chúng tôi chỉ yêu cầu quyền truy cập bookmark để:
-                <ul>
-                  <li>Lưu trữ và quản lý bookmark của bạn</li>
-                  <li>Đồng bộ giữa các thiết bị</li>
-                  <li>Không thu thập lịch sử duyệt web</li>
-                </ul>
-              </p>
+              <p>Chúng tôi chỉ yêu cầu quyền truy cập bookmark để:</p>
+              <ul>
+                <li>Lưu trữ và quản lý bookmark của bạn</li>
+                <li>Đồng bộ giữa các thiết bị</li>
+                <li>Không thu thập lịch sử duyệt web</li>
+              </ul>
             </div>
 
             <div class="feature-card">
@@ -854,12 +895,15 @@
           <div class="screenshots-container">
             <div class="screenshot">
               <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Giao diện chính FlexBookmark">
+              <div class="caption">Giao diện chính</div>
             </div>
             <div class="screenshot">
               <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Quản lý thư mục">
+              <div class="caption">Quản lý thư mục</div>
             </div>
             <div class="screenshot">
               <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Tìm kiếm bookmark">
+              <div class="caption">Tìm kiếm bookmark</div>
             </div>
           </div>
         </section>
@@ -873,33 +917,33 @@
         <div class="footer-column">
           <h3>FlexBookmark</h3>
           <p class="en">Powerful bookmark management tool that helps optimize your daily web browsing experience.</p>
-          <p class="vi">Công cụ quản lý bookmark mạnh mẽ và dễ sử dụng, giúp bạn tối ưu hóa trải nghiệm duyệt web hàng ngày.</p>
+          <p class="vi hidden">Công cụ quản lý bookmark mạnh mẽ và dễ sử dụng, giúp bạn tối ưu hóa trải nghiệm duyệt web hàng ngày.</p>
         </div>
         
         <div class="footer-column">
           <h3 class="en">Links</h3>
-          <h3 class="vi">Liên kết</h3>
+          <h3 class="vi hidden">Liên kết</h3>
           <ul class="footer-links">
-            <li><a href="https://khanhromvn.github.io/FlexBrowserPrivacy-PolicyPage" target="_blank"><i class="fas fa-shield-alt"></i> <span class="en">Privacy Policy</span><span class="vi">Chính sách bảo mật</span></a></li>
-            <li><a href="https://chromewebstore.google.com/detail/FlexBookmark/bopjlpbmdbbiaphanlcecpbglgbjikje?utm_source=item-share-cb" target="_blank"><i class="fab fa-chrome"></i> <span class="en">Chrome Web Store</span><span class="vi">Chrome Web Store</span></a></li>
-            <li><a href="mailto:khanhromvn@gmail.com"><i class="fas fa-envelope"></i> <span class="en">Contact Support</span><span class="vi">Liên hệ hỗ trợ</span></a></li>
+            <li><a href="https://khanhromvn.github.io/FlexBrowserPrivacy-PolicyPage" target="_blank"><i class="fas fa-shield-alt"></i> <span class="en">Privacy Policy</span><span class="vi hidden">Chính sách bảo mật</span></a></li>
+            <li><a href="https://chromewebstore.google.com/detail/FlexBookmark/bopjlpbmdbbiaphanlcecpbglgbjikje?utm_source=item-share-cb" target="_blank"><i class="fab fa-chrome"></i> <span class="en">Chrome Web Store</span><span class="vi hidden">Chrome Web Store</span></a></li>
+            <li><a href="mailto:khanhromvn@gmail.com"><i class="fas fa-envelope"></i> <span class="en">Contact Support</span><span class="vi hidden">Liên hệ hỗ trợ</span></a></li>
           </ul>
         </div>
         
         <div class="footer-column">
           <h3 class="en">Resources</h3>
-          <h3 class="vi">Tài nguyên</h3>
+          <h3 class="vi hidden">Tài nguyên</h3>
           <ul class="footer-links">
-            <li><a href="#"><i class="fas fa-file-alt"></i> <span class="en">Documentation</span><span class="vi">Tài liệu hướng dẫn</span></a></li>
-            <li><a href="#"><i class="fas fa-question-circle"></i> <span class="en">FAQ</span><span class="vi">Câu hỏi thường gặp</span></a></li>
-            <li><a href="#"><i class="fas fa-blog"></i> <span class="en">Updates Blog</span><span class="vi">Blog cập nhật</span></a></li>
+            <li><a href="#"><i class="fas fa-file-alt"></i> <span class="en">Documentation</span><span class="vi hidden">Tài liệu hướng dẫn</span></a></li>
+            <li><a href="#"><i class="fas fa-question-circle"></i> <span class="en">FAQ</span><span class="vi hidden">Câu hỏi thường gặp</span></a></li>
+            <li><a href="#"><i class="fas fa-blog"></i> <span class="en">Updates Blog</span><span class="vi hidden">Blog cập nhật</span></a></li>
           </ul>
         </div>
       </div>
       
       <div class="copyright">
         <p class="en">© 2025 FlexBookmark | Version 1.1.0 | Developed by KhanhRomVN</p>
-        <p class="vi">© 2025 FlexBookmark | Phiên bản 1.1.0 | Phát triển bởi KhanhRomVN</p>
+        <p class="vi hidden">© 2025 FlexBookmark | Phiên bản 1.1.0 | Phát triển bởi KhanhRomVN</p>
       </div>
     </div>
   </footer>
@@ -907,37 +951,57 @@
   <script>
     // Language switching
     document.getElementById('switch-en').addEventListener('click', function() {
-      document.querySelector('[lang="vi"]').classList.remove('active-language');
-      document.querySelector('[lang="en"]').classList.add('active-language');
-      document.querySelectorAll('.vi').forEach(el => el.style.display = 'none');
-      document.querySelectorAll('.en').forEach(el => el.style.display = 'block');
-      this.classList.add('active');
-      document.getElementById('switch-vi').classList.remove('active');
+      switchLanguage('en');
     });
 
     document.getElementById('switch-vi').addEventListener('click', function() {
-      document.querySelector('[lang="en"]').classList.remove('active-language');
-      document.querySelector('[lang="vi"]').classList.add('active-language');
-      document.querySelectorAll('.en').forEach(el => el.style.display = 'none');
-      document.querySelectorAll('.vi').forEach(el => el.style.display = 'block');
-      this.classList.add('active');
-      document.getElementById('switch-en').classList.remove('active');
+      switchLanguage('vi');
     });
 
+    function switchLanguage(lang) {
+      // Hide all language sections
+      document.querySelectorAll('[lang]').forEach(el => {
+        el.classList.remove('active-language');
+      });
+      
+      // Show selected language section
+      document.querySelector(`[lang="${lang}"]`).classList.add('active-language');
+      
+      // Update button states
+      document.querySelectorAll('.language-switcher button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(`switch-${lang}`).classList.add('active');
+      
+      // Toggle language-specific elements
+      const showEN = lang === 'en';
+      document.querySelectorAll('.en').forEach(el => {
+        el.style.display = showEN ? 'block' : 'none';
+      });
+      document.querySelectorAll('.vi').forEach(el => {
+        el.style.display = showEN ? 'none' : 'block';
+      });
+    }
+
     // Open extension
-    document.getElementById('open-extension').addEventListener('click', () => {
-      // Try to open extension directly
-      if (typeof chrome !== 'undefined' && chrome.runtime) {
-        chrome.runtime.sendMessage('bopjlpbmdbbiaphanlcecpbglgbjikje', {action: "openPopup"}, (response) => {
-          if (chrome.runtime.lastError) {
-            // If fails, guide user
-            alert("Please open FlexBookmark from your browser! You can click on the extension icon in your toolbar.");
-          }
-        });
-      } else {
+    document.getElementById('open-extension').addEventListener('click', openExtension);
+    document.getElementById('open-extension-vi').addEventListener('click', openExtension);
+
+    function openExtension() {
+      try {
+        if (typeof chrome !== 'undefined' && chrome.runtime) {
+          chrome.runtime.sendMessage('bopjlpbmdbbiaphanlcecpbglgbjikje', {action: "openPopup"}, (response) => {
+            if (chrome.runtime.lastError) {
+              alert("Please open FlexBookmark from your browser! You can click on the extension icon in your toolbar.");
+            }
+          });
+        } else {
+          alert("Please open FlexBookmark from your Chrome browser by clicking on the extension icon in your toolbar.");
+        }
+      } catch (e) {
         alert("Please open FlexBookmark from your Chrome browser by clicking on the extension icon in your toolbar.");
       }
-    });
+    }
 
     // Scroll effect
     window.addEventListener('scroll', () => {
@@ -949,32 +1013,12 @@
       } else {
         header.style.padding = '30px 0';
         header.style.boxShadow = 'none';
-        header.style.background = 'transparent';
+        header.style.background = 'rgba(255, 255, 255, 0.9)';
       }
     });
 
-    // Animation for elements when they appear
-    const observerOptions = {
-      threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate__fadeInUp');
-        }
-      });
-    }, observerOptions);
-
-    // Apply to elements
-    document.querySelectorAll('.feature-card, .step, .screenshot').forEach(el => {
-      el.classList.add('animate__animated');
-      observer.observe(el);
-    });
-
-    // Set initial language state
-    document.querySelectorAll('.vi').forEach(el => el.style.display = 'none');
-    document.querySelectorAll('.en').forEach(el => el.style.display = 'block');
+    // Initialize language
+    switchLanguage('en');
   </script>
 </body>
 </html>
