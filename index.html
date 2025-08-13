@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -128,36 +128,6 @@
       color: var(--gray);
       max-width: 600px;
       margin: 0 auto;
-    }
-
-    /* Language Switcher */
-    .language-switcher {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .language-switcher button {
-      background: #f1f8ff;
-      border: 1px solid var(--primary);
-      color: var(--primary);
-      padding: 5px 15px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: var(--transition);
-    }
-
-    .language-switcher button:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    .language-switcher button.active {
-      background: var(--primary);
-      color: var(--white);
     }
 
     /* Main content */
@@ -563,14 +533,6 @@
         width: 100%;
         max-width: 400px;
       }
-
-      .language-switcher {
-        position: relative;
-        top: auto;
-        right: auto;
-        justify-content: center;
-        margin-bottom: 20px;
-      }
       
       .hero-buttons {
         flex-direction: column;
@@ -587,33 +549,11 @@
     .floating {
       animation: float 4s ease-in-out infinite;
     }
-
-    /* Language Content - SỬA LỖI TẠI ĐÂY */
-    /* Đơn giản hóa quản lý ngôn ngữ */
-    [lang] {
-      display: none;
-      transition: opacity 0.3s ease;
-      opacity: 0;
-    }
-    
-    [lang].active-language {
-      display: block;
-      opacity: 1;
-    }
-    
-    /* Ẩn các phần tử ngôn ngữ trong footer mặc định */
-    .vi {
-      display: none;
-    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="language-switcher">
-        <button id="switch-en" class="active">English</button>
-        <button id="switch-vi">Tiếng Việt</button>
-      </div>
       <div class="logo-container">
         <div class="logo floating">
           <i class="fas fa-bookmark"></i>
@@ -625,288 +565,144 @@
 
     <main>
       <!-- English Content -->
-      <div lang="en" class="active-language">
-        <section class="app-purpose">
-          <div class="purpose-content">
-            <h2>About FlexBookmark</h2>
-            <p>FlexBookmark is a Chrome extension designed to revolutionize how you manage your bookmarks. Our tool helps you organize, sync, and access your bookmarks across all your devices with ease.</p>
-            
-            <h3>Why We Need Your Bookmark Data</h3>
-            <p>To provide these services, FlexBookmark requires access to your Chrome bookmarks:</p>
+      <section class="app-purpose">
+        <div class="purpose-content">
+          <h2>About FlexBookmark</h2>
+          <p>FlexBookmark is a Chrome extension designed to revolutionize how you manage your bookmarks. Our tool helps you organize, sync, and access your bookmarks across all your devices with ease.</p>
+          
+          <h3>Why We Need Your Bookmark Data</h3>
+          <p>To provide these services, FlexBookmark requires access to your Chrome bookmarks:</p>
+          <ul>
+            <li><strong>Read access</strong>: To display and organize your existing bookmarks</li>
+            <li><strong>Write access</strong>: To create, edit and delete bookmarks as you direct</li>
+            <li><strong>Sync capability</strong>: To keep your bookmarks updated across devices when you're signed in to Chrome</li>
+          </ul>
+          
+          <h3>What We Do With Your Data</h3>
+          <ul>
+            <li>All processing happens locally in your browser</li>
+            <li>No bookmark data is collected or stored on our servers</li>
+            <li>We don't track your browsing history or personal information</li>
+            <li>Data is only synced through your Google account (optional)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="hero">
+        <div class="hero-content">
+          <h2>Smart Bookmark Management for Chrome</h2>
+          <p>FlexBookmark helps you organize, search and access your bookmarks with ease. With intuitive interface and powerful features, bookmark management has never been this simple!</p>
+          <div class="hero-buttons">
+            <a href="https://chromewebstore.google.com/detail/FlexBookmark/bopjlpbmdbbiaphanlcecpbglgbjikje?utm_source=item-share-cb" class="cta-button" target="_blank">
+              <i class="fab fa-chrome"></i> Install Now
+            </a>
+            <button id="open-extension" class="cta-button secondary-button">
+              <i class="fas fa-external-link-alt"></i> Open Extension
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="features">
+        <h2 class="section-title">Key Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-folder"></i>
+            </div>
+            <h3>Smart Organization</h3>
+            <p>Categorize bookmarks into easy-to-manage folders with intuitive drag-and-drop interface. Create hierarchical structures that match your workflow.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>Instant Search</h3>
+            <p>Find bookmarks in seconds with our smart search. Search by name, URL, tags or even page content for saved pages.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-sync"></i>
+            </div>
+            <h3>Cloud Sync</h3>
+            <p>Sync bookmarks across all your devices. Access your bookmarks from computer, phone or tablet anytime.</p>
+          </div>
+          
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <h3>Data Security</h3>
+            <p>Your data is encrypted and protected. We respect your privacy and don't collect personal information.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3>Data Transparency</h3>
+            <p>We only request bookmark access to:</p>
             <ul>
-              <li><strong>Read access</strong>: To display and organize your existing bookmarks</li>
-              <li><strong>Write access</strong>: To create, edit and delete bookmarks as you direct</li>
-              <li><strong>Sync capability</strong>: To keep your bookmarks updated across devices when you're signed in to Chrome</li>
-            </ul>
-            
-            <h3>What We Do With Your Data</h3>
-            <ul>
-              <li>All processing happens locally in your browser</li>
-              <li>No bookmark data is collected or stored on our servers</li>
-              <li>We don't track your browsing history or personal information</li>
-              <li>Data is only synced through your Google account (optional)</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="hero">
-          <div class="hero-content">
-            <h2>Smart Bookmark Management for Chrome</h2>
-            <p>FlexBookmark helps you organize, search and access your bookmarks with ease. With intuitive interface and powerful features, bookmark management has never been this simple!</p>
-            <div class="hero-buttons">
-              <a href="https://chromewebstore.google.com/detail/FlexBookmark/bopjlpbmdbbiaphanlcecpbglgbjikje?utm_source=item-share-cb" class="cta-button" target="_blank">
-                <i class="fab fa-chrome"></i> Install Now
-              </a>
-              <button id="open-extension" class="cta-button secondary-button">
-                <i class="fas fa-external-link-alt"></i> Open Extension
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <section class="features">
-          <h2 class="section-title">Key Features</h2>
-          <div class="features-grid">
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-folder"></i>
-              </div>
-              <h3>Smart Organization</h3>
-              <p>Categorize bookmarks into easy-to-manage folders with intuitive drag-and-drop interface. Create hierarchical structures that match your workflow.</p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-search"></i>
-              </div>
-              <h3>Instant Search</h3>
-              <p>Find bookmarks in seconds with our smart search. Search by name, URL, tags or even page content for saved pages.</p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-sync"></i>
-              </div>
-              <h3>Cloud Sync</h3>
-              <p>Sync bookmarks across all your devices. Access your bookmarks from computer, phone or tablet anytime.</p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-lock"></i>
-              </div>
-              <h3>Data Security</h3>
-              <p>Your data is encrypted and protected. We respect your privacy and don't collect personal information.</p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-database"></i>
-              </div>
-              <h3>Data Transparency</h3>
-              <p>We only request bookmark access to:</p>
-              <ul>
-                <li>Save and manage your bookmarks</li>
-                <li>Sync between your devices</li>
-                <li>Never collect browsing history</li>
-              </ul>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-shield-alt"></i>
-              </div>
-              <h3>Privacy Focused</h3>
-              <p>All processing happens in your browser. We don't store your bookmarks on our servers. Sync uses Google's secure infrastructure.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="how-to-use">
-          <h2 class="section-title">How It Works</h2>
-          <div class="steps">
-            <div class="step">
-              <h3>Install Extension</h3>
-              <p>Visit Chrome Web Store and install FlexBookmark. The installation completes in just seconds.</p>
-            </div>
-            
-            <div class="step">
-              <h3>Add Bookmarks</h3>
-              <p>Click the FlexBookmark icon in your toolbar and select "Add current page" to save new bookmarks.</p>
-            </div>
-            
-            <div class="step">
-              <h3>Organize</h3>
-              <p>Arrange bookmarks into folders, add tags and descriptions for easy retrieval later.</p>
-            </div>
-            
-            <div class="step">
-              <h3>Quick Access</h3>
-              <p>Use keyboard shortcuts or click the icon to open bookmark manager anytime.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="screenshots">
-          <h2 class="section-title">Screenshots</h2>
-          <div class="screenshots-container">
-            <div class="screenshot">
-              <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="FlexBookmark Main Interface">
-              <div class="caption">Main Interface</div>
-            </div>
-            <div class="screenshot">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Folder Management">
-              <div class="caption">Folder Management</div>
-            </div>
-            <div class="screenshot">
-              <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Bookmark Search">
-              <div class="caption">Bookmark Search</div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <!-- Vietnamese Content -->
-      <div lang="vi">
-        <section class="app-purpose">
-          <div class="purpose-content">
-            <h2>Về FlexBookmark</h2>
-            <p>FlexBookmark là tiện ích mở rộng Chrome giúp bạn quản lý bookmark một cách thông minh và hiệu quả. Công cụ của chúng tôi giúp bạn tổ chức, đồng bộ và truy cập bookmark trên mọi thiết bị dễ dàng.</p>
-            
-            <h3>Tại sao cần truy cập Bookmark của bạn</h3>
-            <p>Để cung cấp các dịch vụ này, FlexBookmark cần quyền truy cập vào bookmark Chrome của bạn:</p>
-            <ul>
-              <li><strong>Quyền đọc</strong>: Để hiển thị và sắp xếp bookmark hiện có</li>
-              <li><strong>Quyền ghi</strong>: Để tạo, chỉnh sửa và xóa bookmark theo yêu cầu của bạn</li>
-              <li><strong>Đồng bộ</strong>: Để giữ cho bookmark của bạn được cập nhật trên các thiết bị khi bạn đăng nhập Chrome</li>
-            </ul>
-            
-            <h3>Cách chúng tôi xử lý dữ liệu</h3>
-            <ul>
-              <li>Tất cả xử lý diễn ra cục bộ trong trình duyệt của bạn</li>
-              <li>Không thu thập hoặc lưu trữ dữ liệu bookmark trên máy chủ của chúng tôi</li>
-              <li>Chúng tôi không theo dõi lịch sử duyệt web hoặc thông tin cá nhân</li>
-              <li>Dữ liệu chỉ được đồng bộ thông qua tài khoản Google của bạn (tùy chọn)</li>
+              <li>Save and manage your bookmarks</li>
+              <li>Sync between your devices</li>
+              <li>Never collect browsing history</li>
             </ul>
           </div>
-        </section>
 
-        <section class="hero">
-          <div class="hero-content">
-            <h2>Quản lý Bookmark thông minh cho Chrome</h2>
-            <p>FlexBookmark giúp bạn tổ chức, tìm kiếm và truy cập bookmark một cách dễ dàng. Với giao diện trực quan và tính năng mạnh mẽ, quản lý bookmark chưa bao giờ đơn giản đến thế!</p>
-            <div class="hero-buttons">
-              <a href="https://chromewebstore.google.com/detail/FlexBookmark/bopjlpbmdbbiaphanlcecpbglgbjikje?utm_source=item-share-cb" class="cta-button" target="_blank">
-                <i class="fab fa-chrome"></i> Cài đặt ngay
-              </a>
-              <button id="open-extension-vi" class="cta-button secondary-button">
-                <i class="fas fa-external-link-alt"></i> Mở Extension
-              </button>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
             </div>
+            <h3>Privacy Focused</h3>
+            <p>All processing happens in your browser. We don't store your bookmarks on our servers. Sync uses Google's secure infrastructure.</p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="features">
-          <h2 class="section-title">Tính năng nổi bật</h2>
-          <div class="features-grid">
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-folder"></i>
-              </div>
-              <h3>Tổ chức thông minh</h3>
-              <p>Phân loại bookmark vào các thư mục dễ quản lý với giao diện kéo thả trực quan. Tạo hệ thống phân cấp theo nhu cầu của bạn.</p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-search"></i>
-              </div>
-              <h3>Tìm kiếm tức thì</h3>
-              <p>Tìm bookmark chỉ trong vài giây với công cụ tìm kiếm thông minh. Tìm theo tên, URL, thẻ và nội dung trang đã lưu.</p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-sync"></i>
-              </div>
-              <h3>Đồng bộ đám mây</h3>
-              <p>Đồng bộ bookmark trên tất cả thiết bị của bạn. Truy cập dấu trang từ máy tính, điện thoại hay tablet bất cứ lúc nào.</p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-lock"></i>
-              </div>
-              <h3>Bảo mật dữ liệu</h3>
-              <p>Dữ liệu của bạn được mã hóa và bảo vệ an toàn. Chúng tôi tôn trọng quyền riêng tư của bạn và không thu thập thông tin cá nhân.</p>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-database"></i>
-              </div>
-              <h3>Minh bạch dữ liệu</h3>
-              <p>Chúng tôi chỉ yêu cầu quyền truy cập bookmark để:</p>
-              <ul>
-                <li>Lưu trữ và quản lý bookmark của bạn</li>
-                <li>Đồng bộ giữa các thiết bị</li>
-                <li>Không thu thập lịch sử duyệt web</li>
-              </ul>
-            </div>
-
-            <div class="feature-card">
-              <div class="feature-icon">
-                <i class="fas fa-shield-alt"></i>
-              </div>
-              <h3>Bảo mật tập trung</h3>
-              <p>Tất cả xử lý diễn ra trong trình duyệt của bạn. Chúng tôi không lưu trữ bookmark trên máy chủ. Đồng bộ sử dụng cơ sở hạ tầng bảo mật của Google.</p>
-            </div>
+      <section class="how-to-use">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+          <div class="step">
+            <h3>Install Extension</h3>
+            <p>Visit Chrome Web Store and install FlexBookmark. The installation completes in just seconds.</p>
           </div>
-        </section>
-
-        <section class="how-to-use">
-          <h2 class="section-title">Hướng dẫn sử dụng</h2>
-          <div class="steps">
-            <div class="step">
-              <h3>Cài đặt Extension</h3>
-              <p>Truy cập Chrome Web Store và cài đặt FlexBookmark. Chỉ mất vài giây để hoàn tất quá trình cài đặt.</p>
-            </div>
-            
-            <div class="step">
-              <h3>Thêm Bookmark</h3>
-              <p>Nhấp vào biểu tượng FlexBookmark trên thanh công cụ và chọn "Thêm trang hiện tại" để lưu bookmark mới.</p>
-            </div>
-            
-            <div class="step">
-              <h3>Tổ chức Bookmark</h3>
-              <p>Sắp xếp bookmark vào các thư mục, thêm thẻ và mô tả để dễ dàng tìm kiếm sau này.</p>
-            </div>
-            
-            <div class="step">
-              <h3>Truy cập nhanh</h3>
-              <p>Sử dụng tổ hợp phím tắt hoặc nhấp vào biểu tượng để mở giao diện quản lý bookmark bất cứ lúc nào.</p>
-            </div>
+          
+          <div class="step">
+            <h3>Add Bookmarks</h3>
+            <p>Click the FlexBookmark icon in your toolbar and select "Add current page" to save new bookmarks.</p>
           </div>
-        </section>
-
-        <section class="screenshots">
-          <h2 class="section-title">Hình ảnh minh họa</h2>
-          <div class="screenshots-container">
-            <div class="screenshot">
-              <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Giao diện chính FlexBookmark">
-              <div class="caption">Giao diện chính</div>
-            </div>
-            <div class="screenshot">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Quản lý thư mục">
-              <div class="caption">Quản lý thư mục</div>
-            </div>
-            <div class="screenshot">
-              <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Tìm kiếm bookmark">
-              <div class="caption">Tìm kiếm bookmark</div>
-            </div>
+          
+          <div class="step">
+            <h3>Organize</h3>
+            <p>Arrange bookmarks into folders, add tags and descriptions for easy retrieval later.</p>
           </div>
-        </section>
-      </div>
+          
+          <div class="step">
+            <h3>Quick Access</h3>
+            <p>Use keyboard shortcuts or click the icon to open bookmark manager anytime.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="screenshots">
+        <h2 class="section-title">Screenshots</h2>
+        <div class="screenshots-container">
+          <div class="screenshot">
+            <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="FlexBookmark Main Interface">
+            <div class="caption">Main Interface</div>
+          </div>
+          <div class="screenshot">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Folder Management">
+            <div class="caption">Folder Management</div>
+          </div>
+          <div class="screenshot">
+            <img src="https://images.unsplash.com/photo-1550439062-609e1531270e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="Bookmark Search">
+            <div class="caption">Bookmark Search</div>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 
@@ -915,76 +711,37 @@
       <div class="footer-content">
         <div class="footer-column">
           <h3>FlexBookmark</h3>
-          <p class="en">Powerful bookmark management tool that helps optimize your daily web browsing experience.</p>
-          <p class="vi">Công cụ quản lý bookmark mạnh mẽ và dễ sử dụng, giúp bạn tối ưu hóa trải nghiệm duyệt web hàng ngày.</p>
+          <p>Powerful bookmark management tool that helps optimize your daily web browsing experience.</p>
         </div>
         
         <div class="footer-column">
-          <h3 class="en">Links</h3>
-          <h3 class="vi">Liên kết</h3>
+          <h3>Links</h3>
           <ul class="footer-links">
-            <li><a href="https://khanhromvn.github.io/FlexBrowserPrivacy-PolicyPage" target="_blank"><i class="fas fa-shield-alt"></i> <span class="en">Privacy Policy</span><span class="vi">Chính sách bảo mật</span></a></li>
-            <li><a href="https://chromewebstore.google.com/detail/FlexBookmark/bopjlpbmdbbiaphanlcecpbglgbjikje?utm_source=item-share-cb" target="_blank"><i class="fab fa-chrome"></i> <span class="en">Chrome Web Store</span><span class="vi">Chrome Web Store</span></a></li>
-            <li><a href="mailto:khanhromvn@gmail.com"><i class="fas fa-envelope"></i> <span class="en">Contact Support</span><span class="vi">Liên hệ hỗ trợ</span></a></li>
+            <li><a href="https://khanhromvn.github.io/FlexBrowserPrivacy-PolicyPage" target="_blank"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+            <li><a href="https://chromewebstore.google.com/detail/FlexBookmark/bopjlpbmdbbiaphanlcecpbglgbjikje?utm_source=item-share-cb" target="_blank"><i class="fab fa-chrome"></i> Chrome Web Store</a></li>
+            <li><a href="mailto:khanhromvn@gmail.com"><i class="fas fa-envelope"></i> Contact Support</a></li>
           </ul>
         </div>
         
         <div class="footer-column">
-          <h3 class="en">Resources</h3>
-          <h3 class="vi">Tài nguyên</h3>
+          <h3>Resources</h3>
           <ul class="footer-links">
-            <li><a href="#"><i class="fas fa-file-alt"></i> <span class="en">Documentation</span><span class="vi">Tài liệu hướng dẫn</span></a></li>
-            <li><a href="#"><i class="fas fa-question-circle"></i> <span class="en">FAQ</span><span class="vi">Câu hỏi thường gặp</span></a></li>
-            <li><a href="#"><i class="fas fa-blog"></i> <span class="en">Updates Blog</span><span class="vi">Blog cập nhật</span></a></li>
+            <li><a href="#"><i class="fas fa-file-alt"></i> Documentation</a></li>
+            <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+            <li><a href="#"><i class="fas fa-blog"></i> Updates Blog</a></li>
           </ul>
         </div>
       </div>
       
       <div class="copyright">
-        <p class="en">© 2025 FlexBookmark | Version 1.1.0 | Developed by KhanhRomVN</p>
-        <p class="vi">© 2025 FlexBookmark | Phiên bản 1.1.0 | Phát triển bởi KhanhRomVN</p>
+        <p>© 2025 FlexBookmark | Version 1.1.0 | Developed by KhanhRomVN</p>
       </div>
     </div>
   </footer>
 
   <script>
-    // Language switching
-    document.getElementById('switch-en').addEventListener('click', function() {
-      switchLanguage('en');
-    });
-
-    document.getElementById('switch-vi').addEventListener('click', function() {
-      switchLanguage('vi');
-    });
-
-    function switchLanguage(lang) {
-      // Hide all language sections
-      document.querySelectorAll('[lang]').forEach(el => {
-        el.classList.remove('active-language');
-      });
-      
-      // Show selected language section
-      document.querySelector(`[lang="${lang}"]`).classList.add('active-language');
-      
-      // Update button states
-      document.querySelectorAll('.language-switcher button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      document.getElementById(`switch-${lang}`).classList.add('active');
-      
-      // Toggle language-specific elements in footer
-      const showEN = lang === 'en';
-      document.querySelectorAll('.en').forEach(el => {
-        el.style.display = showEN ? 'block' : 'none';
-      });
-      document.querySelectorAll('.vi').forEach(el => {
-        el.style.display = showEN ? 'none' : 'block';
-      });
-    }
-
     // Open extension
     document.getElementById('open-extension').addEventListener('click', openExtension);
-    document.getElementById('open-extension-vi').addEventListener('click', openExtension);
 
     function openExtension() {
       try {
@@ -1014,11 +771,6 @@
         header.style.boxShadow = 'none';
         header.style.background = 'rgba(255, 255, 255, 0.9)';
       }
-    });
-
-    // Initialize language
-    document.addEventListener('DOMContentLoaded', function() {
-      switchLanguage('en');
     });
   </script>
 </body>
