@@ -130,6 +130,77 @@
       margin: 0 auto;
     }
 
+    /* Problem-Solution Section */
+    .problem-solution {
+      background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+      padding: 60px 0;
+      margin: 30px 0;
+      border-radius: 15px;
+      box-shadow: var(--box-shadow);
+      text-align: center;
+    }
+    
+    .problem-solution h2 {
+      font-size: 2.2rem;
+      margin-bottom: 30px;
+      color: var(--dark);
+      position: relative;
+    }
+    
+    .problem-solution h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(45deg, var(--accent), var(--secondary));
+      margin: 15px auto;
+      border-radius: 2px;
+    }
+    
+    .problem-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .problem-card, .solution-card {
+      flex: 1;
+      min-width: 300px;
+      max-width: 450px;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: var(--box-shadow);
+    }
+    
+    .problem-card {
+      background: #fff0f0;
+      border-left: 5px solid var(--accent);
+    }
+    
+    .solution-card {
+      background: #f0fff4;
+      border-left: 5px solid #4CAF50;
+    }
+    
+    .problem-card h3, .solution-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .problem-card h3 i {
+      color: var(--accent);
+      margin-right: 10px;
+    }
+    
+    .solution-card h3 i {
+      color: #4CAF50;
+      margin-right: 10px;
+    }
+
     /* Main content */
     .hero {
       text-align: center;
@@ -516,7 +587,7 @@
         font-size: 2rem;
       }
       
-      .section-title, .purpose-content h2 {
+      .section-title, .purpose-content h2, .problem-solution h2 {
         font-size: 1.8rem;
       }
       
@@ -536,6 +607,14 @@
       
       .hero-buttons {
         flex-direction: column;
+      }
+      
+      .problem-container {
+        flex-direction: column;
+      }
+      
+      .problem-card, .solution-card {
+        max-width: 100%;
       }
     }
 
@@ -564,34 +643,48 @@
     </header>
 
     <main>
-      <!-- English Content -->
-      <section class="app-purpose">
+      <!-- New Problem-Solution Section -->
+      <section class="problem-solution">
         <div class="purpose-content">
-          <h2>About FlexBookmark</h2>
-          <p>FlexBookmark is a Chrome extension designed to revolutionize how you manage your bookmarks. Our tool helps you organize, sync, and access your bookmarks across all your devices with ease.</p>
+          <h2>Solve Your Bookmark Chaos</h2>
+          <p>We've all been there - hundreds of bookmarks scattered across folders, important links lost in the mess.</p>
           
-          <h3>Why We Need Your Bookmark Data</h3>
-          <p>To provide these services, FlexBookmark requires access to your Chrome bookmarks:</p>
-          <ul>
-            <li><strong>Read access</strong>: To display and organize your existing bookmarks</li>
-            <li><strong>Write access</strong>: To create, edit and delete bookmarks as you direct</li>
-            <li><strong>Sync capability</strong>: To keep your bookmarks updated across devices when you're signed in to Chrome</li>
-          </ul>
-          
-          <h3>What We Do With Your Data</h3>
-          <ul>
-            <li>All processing happens locally in your browser</li>
-            <li>No bookmark data is collected or stored on our servers</li>
-            <li>We don't track your browsing history or personal information</li>
-            <li>Data is only synced through your Google account (optional)</li>
-          </ul>
+          <div class="problem-container">
+            <div class="problem-card">
+              <h3><i class="fas fa-exclamation-triangle"></i> The Problem</h3>
+              <p>Bookmarks become useless when:</p>
+              <ul>
+                <li>You can't find what you need quickly</li>
+                <li>Important links get buried in clutter</li>
+                <li>Organization takes more time than browsing</li>
+                <li>Sync issues between devices</li>
+              </ul>
+            </div>
+            
+            <div class="solution-card">
+              <h3><i class="fas fa-lightbulb"></i> Our Solution</h3>
+              <p>FlexBookmark is designed to:</p>
+              <ul>
+                <li>Automatically organize thousands of bookmarks</li>
+                <li>Provide instant search across all your links</li>
+                <li>Keep perfect sync between devices</li>
+                <li>Save you hours of manual organization</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="hero">
         <div class="hero-content">
-          <h2>Smart Bookmark Management for Chrome</h2>
-          <p>FlexBookmark helps you organize, search and access your bookmarks with ease. With intuitive interface and powerful features, bookmark management has never been this simple!</p>
+          <h2>Reclaim Control of Your Bookmarks</h2>
+          <p>Tired of losing important links in bookmark chaos? FlexBookmark gives you:</p>
+          <ul>
+            <li>One-click organization</li>
+            <li>Cross-device access</li>
+            <li>Lightning-fast search</li>
+            <li>Zero data sharing</li>
+          </ul>
           <div class="hero-buttons">
             <a href="https://chromewebstore.google.com/detail/FlexBookmark/bopjlpbmdbbiaphanlcecpbglgbjikje?utm_source=item-share-cb" class="cta-button" target="_blank">
               <i class="fab fa-chrome"></i> Install Now
@@ -600,6 +693,28 @@
               <i class="fas fa-external-link-alt"></i> Open Extension
             </button>
           </div>
+        </div>
+      </section>
+
+      <section class="app-purpose">
+        <div class="purpose-content">
+          <h2>Our Commitment to Your Data Privacy</h2>
+          <p>To deliver these powerful features, FlexBookmark requires access to your bookmarks:</p>
+          
+          <h3>Why We Need Access</h3>
+          <ul>
+            <li><strong>Read access</strong>: To organize and display your bookmarks effectively</li>
+            <li><strong>Write access</strong>: To save and manage bookmarks as you direct</li>
+            <li><strong>Sync capability</strong>: To keep your bookmarks updated across devices</li>
+          </ul>
+          
+          <h3>Our Privacy Promise</h3>
+          <ul>
+            <li>All processing happens locally in your browser</li>
+            <li>Zero bookmark data collected or stored on our servers</li>
+            <li>No tracking of your browsing history or personal information</li>
+            <li>Optional sync uses Google's secure infrastructure</li>
+          </ul>
         </div>
       </section>
 
